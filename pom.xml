@@ -96,7 +96,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>com.TBD.backbone.services.config.LoggingServiceContainer</mainClass>
+							<mainClass>com.TBD.backbone.services.logging.LoggingServiceContainer</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

@@ -4,7 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import com.TBD.backbone.services.DefaultConfigProvider;
+import com.TBD.backbone.services.config.DefaultConfigProvider;
 import com.TBD.backbone.services.logging.LogEvent;
 import com.TBD.core.dao.DAOException;
 import com.TBD.core.dao.rdbms.AbstractDAO;
@@ -18,7 +18,7 @@ public class LoggingDAOImpl extends AbstractDAO implements LoggingDAO
 	
 	public LoggingDAOImpl() throws Exception
 	{
-		super.init(ResourceManager.getInstance().getRDBMSDataStore(new DefaultConfigProvider(COMPONENT_ID)));
+		super.init(ResourceManager.getInstance().getRDBMSDataStore(new DefaultConfigProvider("LoggingService", COMPONENT_ID)));
 	}
 	
 	@Override
