@@ -14,7 +14,7 @@ import com.TBD.core.resources.ResourceManager;
 public class LoggingDAOImpl extends AbstractDAO implements LoggingDAO
 {
 	private static final String COMPONENT_ID = "14fe64ea-d15a-4c8b-af2f-f2c7efe1943b";
-	private static final String INSERT_LOG_SP = "BackboneTier2.InsertLog";
+	private static final String INSERT_LOG_SP = "Backbone.InsertLog";
 	
 	public LoggingDAOImpl() throws Exception
 	{
