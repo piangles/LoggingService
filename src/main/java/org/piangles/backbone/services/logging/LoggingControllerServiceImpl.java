@@ -1,5 +1,6 @@
-package com.TBD.backbone.services.logging;
+package org.piangles.backbone.services.logging;
 
+import com.TBD.backbone.services.logging.LogEvent;
 import com.TBD.core.services.Request;
 import com.TBD.core.services.Response;
 import com.TBD.core.services.Service;

@@ -1,7 +1,9 @@
-package com.TBD.backbone.services.logging;
+package org.piangles.backbone.services.logging;
 
-import com.TBD.backbone.services.logging.dao.LoggingDAO;
-import com.TBD.backbone.services.logging.dao.LoggingDAOImpl;
+import org.piangles.backbone.services.logging.dao.LoggingDAO;
+import org.piangles.backbone.services.logging.dao.LoggingDAOImpl;
+
+import com.TBD.backbone.services.logging.LogEvent;
 import com.TBD.core.dao.DAOException;
 import com.TBD.core.email.EmailSupport;
 
