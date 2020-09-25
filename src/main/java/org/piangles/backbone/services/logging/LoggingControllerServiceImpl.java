@@ -1,8 +1,9 @@
-package com.TBD.backbone.services.logging;
+package org.piangles.backbone.services.logging;
 
-import com.TBD.core.services.Request;
-import com.TBD.core.services.Response;
-import com.TBD.core.services.Service;
+import org.piangles.backbone.services.logging.LogEvent;
+import org.piangles.core.services.Request;
+import org.piangles.core.services.Response;
+import org.piangles.core.services.Service;
 
 public class LoggingControllerServiceImpl implements Service
 {

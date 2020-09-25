@@ -1,9 +1,11 @@
-package com.TBD.backbone.services.logging;
+package org.piangles.backbone.services.logging;
 
-import com.TBD.backbone.services.logging.dao.LoggingDAO;
-import com.TBD.backbone.services.logging.dao.LoggingDAOImpl;
-import com.TBD.core.dao.DAOException;
-import com.TBD.core.email.EmailSupport;
+import org.piangles.backbone.services.logging.dao.LoggingDAO;
+import org.piangles.backbone.services.logging.dao.LoggingDAOImpl;
+
+import org.piangles.backbone.services.logging.LogEvent;
+import org.piangles.core.dao.DAOException;
+import org.piangles.core.email.EmailSupport;
 
 /**
  * Implementation will NOT implement the interface as 

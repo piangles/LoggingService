@@ -1,15 +1,15 @@
-package com.TBD.backbone.services.logging.dao;
+package org.piangles.backbone.services.logging.dao;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import com.TBD.backbone.services.config.DefaultConfigProvider;
-import com.TBD.backbone.services.logging.LogEvent;
-import com.TBD.core.dao.DAOException;
-import com.TBD.core.dao.rdbms.AbstractDAO;
-import com.TBD.core.dao.rdbms.StatementPreparer;
-import com.TBD.core.resources.ResourceManager;
+import org.piangles.backbone.services.config.DefaultConfigProvider;
+import org.piangles.backbone.services.logging.LogEvent;
+import org.piangles.core.dao.DAOException;
+import org.piangles.core.dao.rdbms.AbstractDAO;
+import org.piangles.core.dao.rdbms.StatementPreparer;
+import org.piangles.core.resources.ResourceManager;
 
 public class LoggingDAOImpl extends AbstractDAO implements LoggingDAO
 {
