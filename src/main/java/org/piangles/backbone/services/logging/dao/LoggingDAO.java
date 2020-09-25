@@ -1,7 +1,7 @@
 package org.piangles.backbone.services.logging.dao;
 
-import com.TBD.backbone.services.logging.LogEvent;
-import com.TBD.core.dao.DAOException;
+import org.piangles.backbone.services.logging.LogEvent;
+import org.piangles.core.dao.DAOException;
 
 public interface LoggingDAO
 {
