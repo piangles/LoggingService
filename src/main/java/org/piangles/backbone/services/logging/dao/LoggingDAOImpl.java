@@ -20,7 +20,7 @@ public class LoggingDAOImpl extends AbstractNoSqlDAO
 	{
 		/*
 		 * 
-		//TODO: send an NOSQLDataStore instance just like RDBMSDataStore
+		//TODO: pass a NOSQLDataStore object to AbstractNoSqlDAO constructor just like RDBMSDataStore
 		super.init(ResourceManager.getInstance().getRDBMSDataStore(new DefaultConfigProvider("LoggingService", COMPONENT_ID)));
 		*
 		*/
