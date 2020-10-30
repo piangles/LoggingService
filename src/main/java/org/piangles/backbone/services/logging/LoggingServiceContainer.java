@@ -23,7 +23,7 @@ public class LoggingServiceContainer extends AbstractContainer
 
 	public LoggingServiceContainer()
 	{
-		super("LoggingService");
+		super(LoggingService.NAME);
 	}
 	
 	@Override
