@@ -12,7 +12,7 @@ public class LoggingServiceContainer extends AbstractContainer
 		LoggingServiceContainer container = new LoggingServiceContainer();
 		try
 		{
-			container.performSteps();
+			container.performSteps(args);
 		}
 		catch (ContainerException e)
 		{

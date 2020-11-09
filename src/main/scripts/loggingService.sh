@@ -1,6 +1,6 @@
 #!/bin/bash
 
-JAR_FILE=app-logging.jar
+JAR_FILE=LoggingService.jar
 PROCESS_NAME=LoggingService
 
 function printUsage {
