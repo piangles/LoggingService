@@ -4,21 +4,20 @@ import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import org.piangles.backbone.services.config.DefaultConfigProvider;
 import org.piangles.backbone.services.logging.LogEvent;
 import org.piangles.core.dao.DAOException;
 import org.piangles.core.dao.rdbms.AbstractDAO;
 import org.piangles.core.dao.rdbms.StatementPreparer;
 import org.piangles.core.resources.ResourceManager;
+import org.piangles.core.util.abstractions.ConfigProvider;
 
-public class LoggingDAOImpl extends AbstractDAO implements LoggingDAO
+public class LoggingRDBMSDAOImpl extends AbstractDAO implements LoggingDAO
 {
-	private static final String COMPONENT_ID = "14fe64ea-d15a-4c8b-af2f-f2c7efe1943b";
 	private static final String INSERT_LOG_SP = "Backbone.InsertLog";
 	
-	public LoggingDAOImpl() throws Exception
+	public LoggingRDBMSDAOImpl(ConfigProvider cp) throws Exception
 	{
-		super.init(ResourceManager.getInstance().getRDBMSDataStore(new DefaultConfigProvider("LoggingService", COMPONENT_ID)));
+		super.init(ResourceManager.getInstance().getRDBMSDataStore(cp));
 	}
 	
 	@Override

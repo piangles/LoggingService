@@ -1,11 +1,13 @@
 package org.piangles.backbone.services.logging;
 
-import org.piangles.backbone.services.logging.dao.LoggingDAO;
-import org.piangles.backbone.services.logging.dao.LoggingDAOImpl;
+import java.util.Properties;
 
-import org.piangles.backbone.services.logging.LogEvent;
-import org.piangles.core.dao.DAOException;
+import org.piangles.backbone.services.config.DefaultConfigProvider;
+import org.piangles.backbone.services.logging.dao.LoggingDAO;
+import org.piangles.backbone.services.logging.dao.LoggingMongoDAOImpl;
+import org.piangles.backbone.services.logging.dao.LoggingRDBMSDAOImpl;
 import org.piangles.core.email.EmailSupport;
+import org.piangles.core.util.abstractions.ConfigProvider;
 
 /**
  * Implementation will NOT implement the interface as 
@@ -17,11 +19,24 @@ import org.piangles.core.email.EmailSupport;
  */
 public final class LoggingServiceImpl
 {
+	private static final String COMPONENT_ID = "14fe64ea-d15a-4c8b-af2f-f2c7efe1943b";
+	private static final String DEFAULT_TYPE = "Mongo";
+	private static final String TYPE = "Type";
+
 	private LoggingDAO loggingDAO = null;
 	
 	public LoggingServiceImpl() throws Exception
 	{
-		loggingDAO = new LoggingDAOImpl();
+		ConfigProvider cp = new DefaultConfigProvider("LoggingService", COMPONENT_ID);
+		Properties props = cp.getProperties();
+		if (DEFAULT_TYPE.equals(props.getProperty(TYPE)))
+		{
+			loggingDAO = new LoggingMongoDAOImpl(cp);
+		}
+		else
+		{
+			loggingDAO = new LoggingRDBMSDAOImpl(cp);
+		}
 	}
 	
 	public void record(LogEvent event)
