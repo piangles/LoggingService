@@ -20,8 +20,8 @@ import org.piangles.core.util.abstractions.ConfigProvider;
 public final class LoggingServiceImpl
 {
 	private static final String COMPONENT_ID = "14fe64ea-d15a-4c8b-af2f-f2c7efe1943b";
-	private static final String DEFAULT_TYPE = "Mongo";
-	private static final String TYPE = "Type";
+	private static final String DEFAULT_TYPE = "NoSql";
+	private static final String DAO_TYPE = "DAOType";
 
 	private LoggingDAO loggingDAO = null;
 	
@@ -29,7 +29,7 @@ public final class LoggingServiceImpl
 	{
 		ConfigProvider cp = new DefaultConfigProvider("LoggingService", COMPONENT_ID);
 		Properties props = cp.getProperties();
-		if (DEFAULT_TYPE.equals(props.getProperty(TYPE)))
+		if (DEFAULT_TYPE.equals(props.getProperty(DAO_TYPE)))
 		{
 			loggingDAO = new LoggingMongoDAOImpl(cp);
 		}
