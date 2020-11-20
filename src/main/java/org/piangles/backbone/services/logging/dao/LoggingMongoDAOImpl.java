@@ -16,6 +16,12 @@ public class LoggingMongoDAOImpl extends AbstractDAO<LogEvent> implements Loggin
 	@Override
 	public void insertLog(LogEvent event) throws DAOException
 	{
-		super.create("LogEvent", event);
+		super.create(event);
+	}
+
+	@Override
+	protected Class<LogEvent> getTClass()
+	{
+		return LogEvent.class;
 	}
 }

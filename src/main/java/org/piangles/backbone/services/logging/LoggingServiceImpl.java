@@ -37,6 +37,7 @@ public final class LoggingServiceImpl
 		{
 			loggingDAO = new LoggingRDBMSDAOImpl(cp);
 		}
+		System.out.println("Starting LoggingService with DAO: " + loggingDAO.getClass());
 	}
 	
 	public void record(LogEvent event)
