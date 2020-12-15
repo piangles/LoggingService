@@ -1,23 +1,23 @@
 package org.piangles.backbone.services.logging;
 
-import org.piangles.backbone.services.logging.LogEvent;
-import org.piangles.core.services.Request;
-import org.piangles.core.services.Response;
-import org.piangles.core.services.Service;
+import java.lang.reflect.Method;
 
-public class LoggingControllerServiceImpl implements Service
+import org.piangles.core.services.Request;
+import org.piangles.core.services.remoting.AbstractService;
+
+public class LoggingControllerServiceImpl extends AbstractService
 {
 	private LoggingServiceImpl loggingService = null;
 
-	public LoggingControllerServiceImpl(LoggingServiceImpl LoggingService)
+	public LoggingControllerServiceImpl(LoggingServiceImpl loggingService)
 	{
-		this.loggingService = LoggingService;
+		super(loggingService);
+		this.loggingService = loggingService;
 	}
 
 	@Override
-	public Response process(Request request)
+	protected Object process(Method method, Object[] args, Request request) throws Exception
 	{
-		Object[] args = request.getParameters();
 		loggingService.record((LogEvent)args[0]);
 
 		return null;
