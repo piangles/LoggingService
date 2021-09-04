@@ -32,7 +32,7 @@ import org.piangles.core.util.abstractions.ConfigProvider;
 
 public class LoggingRDBMSDAOImpl extends AbstractDAO implements LoggingDAO
 {
-	private static final String INSERT_LOG_SP = "Backbone.InsertLog";
+	private static final String INSERT_LOG_SP = "logs.insert_log_event";
 	
 	public LoggingRDBMSDAOImpl(ConfigProvider cp) throws Exception
 	{
