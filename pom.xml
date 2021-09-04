@@ -53,7 +53,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>LoggingService</finalName>
 		<extensions>
 			<extension>
 				<groupId>org.springframework.build</groupId>
@@ -61,6 +60,7 @@
 				<version>${org.springframework.build.aws-maven-version}</version>
 			</extension>
 		</extensions>
+
 
 		<plugins>
 			<plugin>
@@ -71,6 +71,32 @@
 					<source>${java-source-version}</source>
 					<target>${java-target-version}</target>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>org.piangles.backbone.services.logging.LoggingServiceContainer</mainClass>
+								</manifest>
+							</archive>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+							<finalName>LoggingService</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
@@ -163,7 +189,7 @@
 							</arguments>
 						</configuration>
 					</execution>
- 					</executions>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
