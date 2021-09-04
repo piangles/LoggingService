@@ -1,5 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.piangles.backbone.services</groupId>
 	<artifactId>loggingservice</artifactId>
@@ -9,23 +10,25 @@
 	<name>Logging Service</name>
 	<properties>
 		<org.springframework.build.aws-maven-version>5.0.0.RELEASE</org.springframework.build.aws-maven-version>
-		
+
 		<maven-compiler-plugin-version>3.3</maven-compiler-plugin-version>
 		<maven-dependency-plugin>2.10</maven-dependency-plugin>
-		
+		<exec-maven-plugin-version>3.0.0</exec-maven-plugin-version>
+
 		<java-source-version>1.8</java-source-version>
 		<java-target-version>1.8</java-target-version>
+		<docker-group-id>pianglesorg</docker-group-id>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.piangles.backbone.services</groupId>
-			<artifactId>BackBoneServices</artifactId>
+			<artifactId>BackboneServices</artifactId>
 			<version>0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.piangles.backbone.services</groupId>
-			<artifactId>BackBoneServicesLocator</artifactId>
+			<artifactId>BackboneServicesLocator</artifactId>
 			<version>0.2</version>
 		</dependency>
 
@@ -50,7 +53,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>LogggingService</finalName>
+		<finalName>LoggingService</finalName>
 		<extensions>
 			<extension>
 				<groupId>org.springframework.build</groupId>
@@ -98,7 +101,7 @@
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>
 								<argument>rmi</argument>
-								<argument>${dockerId}/${project.artifactId}:${project.version}</argument>
+								<argument>${docker-group-id}/${project.artifactId}:${project.version}</argument>
 							</arguments>
 							<successCodes>
 								<successCode>0</successCode>
@@ -120,7 +123,7 @@
 							<arguments>
 								<argument>build</argument>
 								<argument>-t</argument>
-								<argument>${dockerId}/${project.artifactId}:${project.version}</argument>
+								<argument>${docker-group-id}/${project.artifactId}:${project.version}</argument>
 								<argument>.</argument>
 							</arguments>
 						</configuration>
@@ -156,11 +159,11 @@
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>
 								<argument>push</argument>
-								<argument>${dockerId}/${project.artifactId}:${project.version}</argument>
+								<argument>${docker-group-id}/${project.artifactId}:${project.version}</argument>
 							</arguments>
 						</configuration>
 					</execution>
-				</executions>
+ 					</executions>
 			</plugin>
 		</plugins>
 	</build>
