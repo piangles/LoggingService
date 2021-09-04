@@ -21,12 +21,12 @@ package org.piangles.backbone.services.logging;
 
 import java.util.Properties;
 
-import org.piangles.backbone.services.config.DefaultConfigProvider;
 import org.piangles.backbone.services.logging.dao.LoggingDAO;
 import org.piangles.backbone.services.logging.dao.LoggingMongoDAOImpl;
 import org.piangles.backbone.services.logging.dao.LoggingRDBMSDAOImpl;
 import org.piangles.core.email.EmailSupport;
 import org.piangles.core.util.abstractions.ConfigProvider;
+import org.piangles.core.util.central.CentralConfigProvider;
 
 /**
  * Implementation will NOT implement the interface as 
@@ -46,7 +46,7 @@ public final class LoggingServiceImpl
 	
 	public LoggingServiceImpl() throws Exception
 	{
-		ConfigProvider cp = new DefaultConfigProvider("LoggingService", COMPONENT_ID);
+		ConfigProvider cp = new CentralConfigProvider(LoggingService.NAME, LoggingService.NAME);
 		Properties props = cp.getProperties();
 		if (DEFAULT_DAO_TYPE.equals(props.getProperty(DAO_TYPE)))
 		{
