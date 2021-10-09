@@ -33,12 +33,10 @@ import org.piangles.core.util.central.CentralConfigProvider;
  * all calls debug/info/warn/error/fatal will be converted
  * to RECORD method.
  * 
- * @author Vemuri Saradhi
  *
  */
 public final class LoggingServiceImpl
 {
-	private static final String COMPONENT_ID = "14fe64ea-d15a-4c8b-af2f-f2c7efe1943b";
 	private static final String DEFAULT_DAO_TYPE = "NoSql";
 	private static final String DAO_TYPE = "DAOType";
 
@@ -67,6 +65,11 @@ public final class LoggingServiceImpl
 		}
 		catch (Exception e)
 		{
+			/**
+			 * Consume Exception as this is a FireAndForget Service.
+			 * Log it to console or notify EmailSupport. Cannot Log it using
+			 * Logger as it will be a loop.
+			 */
 			e.printStackTrace(System.out);
 			System.out.println(e.getMessage());
 			EmailSupport.notify(e, e.getMessage());
