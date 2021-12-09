@@ -41,8 +41,20 @@ public class LoggingServiceContainer extends AbstractContainer
 			inetAddress = getLocalHostLANAddress();
 			ipAddress = inetAddress.getHostAddress();
 			System.out.println("APPROACH Hostname: " + inetAddress.getCanonicalHostName() + " IPAddress: " + ipAddress);
+			
+			for (Enumeration ifaces = NetworkInterface.getNetworkInterfaces(); ifaces.hasMoreElements();)
+			{
+				NetworkInterface iface = (NetworkInterface) ifaces.nextElement();
+				System.out.println(iface.getDisplayName() + ":" + iface.getName());
+				// Iterate all IP addresses assigned to each card...
+				for (Enumeration inetAddrs = iface.getInetAddresses(); inetAddrs.hasMoreElements();)
+				{
+					InetAddress inetAddr = (InetAddress) inetAddrs.nextElement();
+					System.out.println(inetAddr);
+				}
+			}
 		}
-		catch (UnknownHostException e1)
+		catch (Exception e1)
 		{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
