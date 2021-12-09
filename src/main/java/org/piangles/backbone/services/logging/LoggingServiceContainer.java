@@ -37,6 +37,7 @@ public class LoggingServiceContainer extends AbstractContainer
 			InetAddress inetAddress = InetAddress.getLocalHost();
 			String ipAddress = inetAddress.getHostAddress();
 			System.out.println("Hostname: " + inetAddress.getCanonicalHostName() + " IPAddress: " + ipAddress);
+			Logger.getInstance().info("Logger Hostname: " + inetAddress.getCanonicalHostName() + " IPAddress: " + ipAddress);
 			
 			inetAddress = getLocalHostLANAddress();
 			ipAddress = inetAddress.getHostAddress();
